@@ -1,0 +1,191 @@
+{
+  "packetVersion": 1,
+  "reviewDate": "2026-09-30",
+  "displayTitle": "Azure Pricing Estimator",
+  "suggestedSlug": "azure-pricing-estimator",
+  "skillVersion": "2.3 - shareable edition",
+  "attribution": {
+    "name": "Owais Ahmed",
+    "team": "Solution Engineering UAE",
+    "emailIncluded": false
+  },
+  "intendedAudience": "Solution engineers using Microsoft Scout on macOS or Windows with authorized Microsoft 365 and Azure Pricing Calculator access.",
+  "categorySuggestion": "Azure / Solution Engineering / Pricing",
+  "triggers": [
+    "price this",
+    "Azure estimate",
+    "BOQ",
+    "pricing calculator",
+    "cost estimate for <customer>",
+    "revise APE:<reference> <instruction>",
+    "Run /azure-pricing-estimator for all eligible requests"
+  ],
+  "does": "Builds calculator-authoritative Azure estimates with separate environment estimates, one consolidated Excel BOQ, an unsent Outlook draft and an explicitly authorized Teams self-chat result.",
+  "expectedOutputs": [
+    "Separate saved calculator estimates, verified share URLs and unchanged original exports per source/environment.",
+    "One consolidated Excel workbook with a formatted Summary and separate source/environment tabs, using native calculator totals.",
+    "Same-thread unsent Reply All draft for email sources; new unsent draft for ad hoc sources.",
+    "One authorized self-chat result with assumptions and links; quick questions use self-chat only."
+  ],
+  "toolsAndData": [
+    "Microsoft Scout skills and local filesystem/shell capabilities.",
+    "M365 sign-in and profile; authorized Outlook email/attachment reads and private draft creation.",
+    "WorkIQ Ask for cloud Office documents; trusted installed executable discovered at onboarding.",
+    "Visible Playwright browser automation for Azure Pricing Calculator and supported Outlook/OneDrive/Teams operations.",
+    "Official Microsoft Learn documentation and public Azure Retail Prices API for evidence and spot checks.",
+    "Installed xlsx skill for export-preserving workbook consolidation.",
+    "Packaged tracker: macOS sh/sqlite3/shasum; Windows PowerShell 7 preferred, Windows PowerShell 5.1 fallback only when 7 is absent, native winsqlite3."
+  ],
+  "possibleActions": [
+    "Create local private configuration, hash-only tracker state and permitted export artifacts.",
+    "Save calculator estimates and generate share URLs only after exact preview and confirmation.",
+    "Create or revise private unsent drafts without sending customer email.",
+    "Upload/share files or send Teams self-chat messages only after explicit confirmation of exact destination, recipients and content.",
+    "No purchases, deployments, CRM updates or automatic automation-setting changes."
+  ],
+  "approvedChanges": [
+    "First-run configurable region and IANA timezone, with UAE North and Asia/Dubai as suggestions requiring confirmation.",
+    "Per-request AHB eligibility and licence coverage; otherwise licence-included pricing where applicable. Honor explicit licence-included requests.",
+    "Disclose applicable material Premium SSD v2 compatibility limitations.",
+    "GA default, explicit request-scoped preview opt-in with regional support, verified calculator pricing and deployment caveats.",
+    "Submitter name and team only; no email attribution."
+  ],
+  "additionalHardening": [
+    "Removed author-specific executable path; discover installed tools rather than guessing home directories.",
+    "Aligned all output surfaces to one consolidated workbook and correct Reply All threading.",
+    "Defined Summary layout, sheet-name collisions, export fidelity and dependency-preserving consolidation requirements.",
+    "Removed companion shared-credit correction outputs that conflicted with native-total consolidation.",
+    "Added exact preview/confirmation gate for calculator saves/shares, cloud uploads and other outbound/shared writes.",
+    "Separated per-user configuration and runtime files from shareable static resources.",
+    "Preserved helper code, schema, payload hashes, existing tracker identities and reconciliation behavior."
+  ],
+  "scrubReport": {
+    "status": "No apparent secrets, live business identifiers, customer excerpts or author-specific machine paths detected in the shareable distribution.",
+    "authorizedPersonalData": "Owais Ahmed - Solution Engineering UAE attribution only.",
+    "removed": [
+      "Author-specific absolute WorkIQ executable path.",
+      "Fixed region/timezone assumptions outside clearly identified first-run suggestions and regional examples."
+    ],
+    "retainedByDesign": [
+      "Public Microsoft documentation and pricing URLs.",
+      "Generic OS-relative state paths and runtime placeholders.",
+      "Synthetic example.invalid addresses, sample UUIDs and dummy opaque IDs used only by tests.",
+      "SHA-256 helper/payload integrity hashes; these are not credentials."
+    ],
+    "scope": "All 16 distribution files, including embedded bootstrap payload and tests. Pattern scans and content inspection are not a formal security certification.",
+    "unknownFilesIncluded": false,
+    "runtimeFilesIncluded": false
+  },
+  "includedFiles": {
+    "promptBody": [
+      "azure-pricing-estimator/SKILL.md"
+    ],
+    "staticReferences": [
+      "azure-pricing-estimator/reference/availability-gate.md",
+      "azure-pricing-estimator/reference/clarification-matrix.md",
+      "azure-pricing-estimator/reference/commercial-defaults.md",
+      "azure-pricing-estimator/reference/completeness-checklist.md",
+      "azure-pricing-estimator/reference/modernization-map.md",
+      "azure-pricing-estimator/reference/output-templates.md",
+      "azure-pricing-estimator/reference/tracker-operations.md"
+    ],
+    "staticHelpers": [
+      "azure-pricing-estimator/scripts/NativeSqlite.cs",
+      "azure-pricing-estimator/scripts/schema.sql",
+      "azure-pricing-estimator/scripts/tracker.ps1",
+      "azure-pricing-estimator/scripts/tracker.sh",
+      "azure-pricing-estimator/scripts/tracker.sql",
+      "azure-pricing-estimator/payload/tracker-payload.md"
+    ],
+    "maintainerTests": [
+      "azure-pricing-estimator/tests/test_distribution.py",
+      "azure-pricing-estimator/tests/test_tracker.py"
+    ],
+    "reviewMetadata": [
+      "review-packet.json",
+      "SHA256SUMS"
+    ]
+  },
+  "excludedFiles": [
+    {
+      "scope": "profile.json and the local preflight profile",
+      "reason": "User-specific settings, absolute paths and submission configuration; generated locally, never distributed."
+    },
+    {
+      "scope": "tracker.sqlite3, SQLite sidecars, initialization markers, notice-outbox journals",
+      "reason": "Private operational state; never copy or reset another user's processing history."
+    },
+    {
+      "scope": "Auth/browser state, tokens, caches, logs, screenshots, source emails/attachments and customer outputs",
+      "reason": "Private/runtime content; not required to distribute the skill."
+    },
+    {
+      "scope": "Session plans, original-source fingerprints, local test output and temporary files",
+      "reason": "Local preflight artifacts, not part of the shareable folder."
+    },
+    {
+      "scope": "Unknown files and symlinks",
+      "reason": "Excluded until explicitly classified and approved."
+    }
+  ],
+  "dependencyRouting": [
+    {
+      "dependency": "SKILL.md, reference/, scripts/, payload/",
+      "byteIdenticalForAllUsers": true,
+      "route": "Approved SharePoint/shared asset library, preserving the complete relative folder structure.",
+      "publisherAction": "After explicit approval, publish the static companion folder and point the Skill Shack entry to it. Do not publish a prompt-only entry that loses required resources. No destination is hardcoded or provisioned by this preflight."
+    },
+    {
+      "dependency": "tests/",
+      "byteIdenticalForAllUsers": true,
+      "route": "Shared maintainer review asset alongside the static distribution.",
+      "publisherAction": "Retain synthetic fixtures; never add real user data. Tests use Python for maintainer validation only, not a runtime prerequisite."
+    },
+    {
+      "dependency": "Per-account profile, tracker state, notice journals and export folders",
+      "byteIdenticalForAllUsers": false,
+      "route": "First-run onboarding/local generation.",
+      "publisherAction": "Never upload populated runtime files to the shared library."
+    },
+    {
+      "dependency": "Scout tools, xlsx skill, WorkIQ, OS runtimes and service access",
+      "byteIdenticalForAllUsers": false,
+      "route": "Host capability discovery and onboarding.",
+      "publisherAction": "Require authorized installed capabilities; do not distribute credentials or silently install/bypass enterprise controls."
+    }
+  ],
+  "onboarding": {
+    "status": "Inserted",
+    "location": "azure-pricing-estimator/reference/tracker-operations.md#first-run-configuration",
+    "questions": [
+      "Confirm target region; suggested UAE North.",
+      "Confirm IANA timezone; suggested Asia/Dubai.",
+      "Confirm local export root; suggest an OS-resolved Downloads customer-estimates folder."
+    ],
+    "questionStyle": "One decision at a time, with a recommendation.",
+    "profileStorage": "Private profile.json in the OS-derived per-account skill-state directory, outside the installed skill folder.",
+    "requestScopedOnly": [
+      "Licence eligibility and coverage",
+      "Preview opt-in",
+      "Send/share confirmation",
+      "Region exceptions"
+    ]
+  },
+  "validationScope": {
+    "automated": "Existing unittest runner: 39 tests passed or skipped as appropriate; 1 PowerShell-specific test skipped on the macOS shell adapter. No real mailbox or pricing actions were performed.",
+    "integrity": "Packaged scripts and embedded payload remain byte-identical to the installed source; their existing SHA-256 manifest remains valid.",
+    "limits": [
+      "Windows-specific execution was not validated on a Windows host.",
+      "No live end-to-end customer estimate, export, draft or Teams send was run.",
+      "Inherited service lifecycle references require runtime revalidation; the complete catalog was not freshly re-researched for packaging.",
+      "Publishing approval, destination and distribution rights remain the publisher's review responsibilities."
+    ]
+  },
+  "publishReadiness": {
+    "recommendation": "Ready for local Skill Shack reviewer handoff, not an approval to publish or an end-to-end production certification.",
+    "hardenedPromptBody": "azure-pricing-estimator/SKILL.md",
+    "submission": "Not submitted. Exact destination, files, scrub findings and unresolved limits must be previewed and explicitly approved before anything leaves the machine.",
+    "zipCreated": false,
+    "installedOriginalModified": false
+  }
+}

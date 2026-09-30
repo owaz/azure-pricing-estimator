@@ -102,6 +102,7 @@
       "azure-pricing-estimator/tests/test_tracker.py"
     ],
     "reviewMetadata": [
+      "README.md",
       "review-packet.json",
       "SHA256SUMS"
     ]
